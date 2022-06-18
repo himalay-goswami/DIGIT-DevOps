@@ -567,6 +567,9 @@ egov-hrms:
   java-args: -Dspring.profiles.active=production
   heap: "-Xmx192m -Xms192m"
   employee-applink: "https://egov-micro-qa.egovernments.org/employee/user/login"
+  
+echallan-services:
+  egov-idgen-challanNum-format: "UK-CH-[cy:yyyy-MM-dd]-[SEQ_EG_CH_APL]"
 
 egov-weekly-impact-notifier:
   mail-to-address: "sanjeev.p@egovernments.org,satyam.ashish@egovernments.org,manasa.niranjan@egovernments.org,pradeep@egovernments.org,ritika.singh@egovernments.org,palak.garg@egovernments.org"
