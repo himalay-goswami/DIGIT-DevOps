@@ -99,6 +99,7 @@ cluster-configs:
               echallan-services: "http://echallan-services:8080/"
               echallan-calculator: "http://echallan-calculator:8080/"
               inbox: "http://inbox:8080/"
+              pdf-service: "http://pdf-service.egov:8080/"
         
 egov-filestore:
   replicas: 1
