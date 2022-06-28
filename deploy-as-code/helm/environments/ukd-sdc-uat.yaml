@@ -127,7 +127,7 @@ egov-filestore:
         claimName: filestore-data-egov-filestore
 
 egov-accesscontrol:
-  replicas: 3
+  replicas: 2
   java-args: "-Dspring.profiles.active=production"
   heap: "-Xmx376m -Xms376m"
 
@@ -382,7 +382,7 @@ zuul:
 # collections >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 collection-services:
-  replicas: 3
+  replicas: 2
   receiptnumber-servicebased: "false"
   java-args: "-Dspring.profiles.active=production"
   server-tomcat-max-threads: "25"
@@ -391,7 +391,7 @@ collection-services:
   sms-enabled: "false"
 
 billing-service:
-  replicas: 3
+  replicas: 2
   heap: "-Xmx400m -Xms400m -XX:TieredStopAtLevel=1" 
   java-args: "-Dspring.profiles.active=production"  
   server-tomcat-max-threads: "30" 
@@ -420,7 +420,7 @@ ui-uploader:
   replicas: 2
 
 egov-otp:
-  replicas: 3
+  replicas: 2
   sms-enabled: "false"
 
 user-otp:
@@ -521,7 +521,7 @@ pt-calculator-v2:
   server-tomcat-max-connections: "1500"
 
 tl-services:
-  replicas: 3
+  replicas: 2
   heap: "-Xmx256m -Xms256m -XX:TieredStopAtLevel=1"
   memory_limits: 512Mi
   java-args: -Dspring.profiles.active=production
@@ -536,7 +536,7 @@ tl-services:
   notification-sms-enabled-forTLRENEWAL: "false"
 
 tl-calculator:
-  replicas: 3
+  replicas: 2
   heap: "-Xmx192m -Xms192m -XX:TieredStopAtLevel=1"
   server-tomcat-max-threads: "35"
   server-tomcat-max-connections: "1500"
@@ -544,7 +544,7 @@ tl-calculator:
   java-args: "-Dspring.profiles.active=production"
 
 pdf-service:
-  replicas: 3
+  replicas: 2
   memory_limits: 1Gi
   heap: "-Xmx786m -Xms786m"  
   initContainers:
@@ -556,7 +556,7 @@ pdf-service:
   max-number-pages: 150
 
 egov-workflow-v2:
-  replicas: 3
+  replicas: 2
   memory_limits: 756Mi
   java-args: -Dspring.profiles.active=production
   heap: "-Xmx512m -Xms512m -XX:TieredStopAtLevel=1"
