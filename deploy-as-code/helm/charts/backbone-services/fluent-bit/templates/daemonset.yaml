@@ -45,7 +45,7 @@ spec:
               - key: Environment
                 operator: In
                 values:
-                - {{ .Values.global.nodepool.selector }}     
+                - "{{ .Values.global.nodepool.selector }}"
       tolerations:
       - key: "dedicated"
         operator: "Equal"
