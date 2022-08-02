@@ -142,3 +142,7 @@ cluster-configs:
     postgres:
       namespace: jenkins
       name: postgres
+
+    fluent-bit:
+      namespace: logging
+      name: fluent-bit
