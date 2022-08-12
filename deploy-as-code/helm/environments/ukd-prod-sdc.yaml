@@ -96,6 +96,10 @@ cluster-configs:
               egov-url-shortening: "http://egov-url-shortening:8080/"
               property-services: "http://property-services:8080/"
               bpa-services: "http://bpa-services.egov:8080/"
+              echallan-services: "http://echallan-services:8080/"
+              echallan-calculator: "http://echallan-calculator:8080/"
+              inbox: "http://inbox:8080/"
+              pdf-service: "http://pdf-service.egov:8080/"
               
 egov-filestore:
   replicas: 1
@@ -215,7 +219,7 @@ egov-mdms-service:
     gitSync:
           repo: "git@github.com:eNagarsewa/ukd-mdms-data"
           branch: "master"
-  masters-config-url: "file:///work-dir/ukd-mdms-data/data/mdms-masters-config.json"
+  masters-config-url: "file:///work-dir/ukd-mdms-data/mdms-masters-config.json"
   java-args: -Dspring.profiles.active=production
   server-tomcat-max-threads: "500"
   server-tomcat-max-connections: "10000"
@@ -232,7 +236,7 @@ egov-indexer:
 
 egov-persister:
   replicas: 2
-  persist-yml-path: "file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pg-service-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pgr-v3-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/property-services-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pt-calculator-v2-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pt-drafts-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tradelicense-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/indexer-job-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tl-calculation-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tl-billing-slab-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/uploader-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/egov-workflow-v2-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/hrms-employee-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/collection-migration-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/egov-user-event-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/property-services-registry.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/assessment-persister-migration-temp.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/rollover-batch-count-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/bulkbill-batch-count-persister.yml"
+  persist-yml-path: "file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pg-service-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pgr-v3-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/property-services-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pt-calculator-v2-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/pt-drafts-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tradelicense-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/indexer-job-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tl-calculation-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/tl-billing-slab-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/uploader-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/egov-workflow-v2-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/hrms-employee-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/collection-migration-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/egov-user-event-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/property-services-registry.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/assessment-persister-migration-temp.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/rollover-batch-count-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/bulkbill-batch-count-persister.yml,file:///work-dir/ukd-rainmaker-customization/configs/egov-persister/echallan.yml"
   initContainers:
     gitSync:
         repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
@@ -463,7 +467,7 @@ citizen:
 report:
   replicas: 2
   tracing-enabled: "true"
-  report-locationsfile-path: "file:///work-dir/ukd-rainmaker-customization/configs/reports/report.config"
+  report-locationsfile-path: "file:///work-dir/ukd-rainmaker-customization/configs/reports/reportFileLocationsv1.txt"
   spring-datasource-tomcat-max-active: 5 
   initContainers:
     gitSync:
@@ -549,12 +553,15 @@ tl-calculator:
 
 pdf-service:
   replicas: 3
+  memory_limits: 1Gi
+  heap: "-Xmx786m -Xms786m"
   initContainers:
     gitSync:
         repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
         branch: "master"
-  data-config-urls: "file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/pt-mutation-reciept.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/pt-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/tl-receipt-hide.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/tl-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/misc-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/consolidatedbill.json"
-  format-config-urls: "file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/pt-mutation-reciept.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/pt-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/tl-receipt-hide.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/tl-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/misc-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/consolidatedbill.json"
+  data-config-urls: "file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/pt-mutation-reciept.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/pt-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/tl-receipt-hide.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/tl-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/misc-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/consolidatedbill.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/data-config/mcollect-challan.json"
+  format-config-urls: "file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/pt-mutation-reciept.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/pt-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/tl-receipt-hide.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/tl-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/misc-receipt.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/consolidatedbill.json,file:///work-dir/ukd-rainmaker-customization/configs/pdf-service/format-config/mcollect-challan.json"
+  max-number-pages: 150
 
 egov-workflow-v2:
   replicas: 3
@@ -571,6 +578,9 @@ egov-hrms:
   java-args: -Dspring.profiles.active=production
   heap: "-Xmx192m -Xms192m"
   employee-applink: "https://nagarsewa.uk.gov.in/employee/user/login"
+  
+echallan-services:
+  egov-idgen-challanNum-format: "UK-CH-[cy:yyyy-MM-dd]-[SEQ_EG_CH_APL]"
 
 egov-weekly-impact-notifier:
   mail-to-address: "pradeep@egovernments.org,omkar.ghatpande@egovernments.org,elzan.mathew@egovernments.org,harishikesh.anand@egovernments.org,ritika.singh@egovernments.org,rawatcp@gmail.com,enagarsewauk@gmail.com,nita@egovernments.org,leadership-team@egovernments.org,shaileshbagauli@gmail.com,ashokpandeyadm2@gmail.com,kamleshdcuk@gmail.com,vksumanias@gmail.com,directorudd@gmail.com,sowmya.vallabhaneni@egovernments.org,k.hemanth@egovernments.org,abhishek.kumar@egovernments.org,vinoth.r@egovernments.org"
