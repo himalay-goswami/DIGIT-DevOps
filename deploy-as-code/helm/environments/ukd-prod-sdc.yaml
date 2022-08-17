@@ -467,7 +467,7 @@ citizen:
 report:
   replicas: 2
   tracing-enabled: "true"
-  report-locationsfile-path: "file:///work-dir/ukd-rainmaker-customization/configs/reports/report.config"
+  report-locationsfile-path: "file:///work-dir/ukd-rainmaker-customization/configs/reports/reportFileLocationsv1.txt"
   spring-datasource-tomcat-max-active: 5 
   initContainers:
     gitSync:
