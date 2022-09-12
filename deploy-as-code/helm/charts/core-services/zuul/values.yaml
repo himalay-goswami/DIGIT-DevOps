@@ -51,6 +51,7 @@ eventlog-enabled: "false"
 eventlog-topic: "zuul-event-log"
 eventlog-urls-whitelist: ""
 home-isolation-chatbot-router-enabled: false
+url-prehook-lists="/ukd-custom-service/endpoints/_noaccess"
 
 # Additional Container Envs
 env: |
