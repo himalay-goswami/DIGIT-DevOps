@@ -368,7 +368,7 @@ cert-manager:
 zuul:
   replicas: 2
   custom-filter-property: "true"
-  prehook-config: "/property-services/property/_search:/ukd-custom-service/endpoints/_noaccess"
+  prehook-config: ""
   tracing-enabled: "true"
   heap: "-Xmx704m -Xms512m -XX:TieredStopAtLevel=1"
   server-tomcat-max-threads: "350"
