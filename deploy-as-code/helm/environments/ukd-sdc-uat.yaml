@@ -161,6 +161,7 @@ egov-notification-sms:
   sms-sender: "HOLSMS"
   sms-config-map: "{'username':'$username', 'password': '$password', 'sender':'$senderid', 'to':'$mobileno', 'message':'$message', 'format':'text'}"
   java-args: "-Dspring.profiles.active=production"
+  sms.provider.class: "Console"
 
 
   
