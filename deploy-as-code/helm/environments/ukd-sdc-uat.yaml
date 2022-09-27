@@ -13,7 +13,7 @@ cluster-configs:
         egov-config:
             namespace: [ egov ]
             data:
-              sms-enabled: false
+              sms-enabled: true
               db-url: "jdbc:postgresql://10.67.54.101:5432/ukdprodbckp"
               db-host: "10.67.54.101"
               db-name: "ukdprodbckp"
@@ -135,7 +135,7 @@ ukd-custom-service:
   replicas: 2
   memory_limits: 768Mi
   heap: "-Xmx512m -Xms512m"  
-  enable-sms: "false"
+  enable-sms: "true"
 
 egov-localization:
   replicas: 2
@@ -156,7 +156,7 @@ egov-location:
 egov-notification-sms:
   replicas: 2
   sms-gateway-to-use: "HOLY_SMS"
-  sms-enabled: "false"
+  sms-enabled: "true"
   sms-provider-url: "http://sms.holymarkindia.abc/API/WebSMS/Http/v1.0a/index.php"
   sms-sender: "HOLSMS"
   sms-config-map: "{'username':'$username', 'password': '$password', 'sender':'$senderid', 'to':'$mobileno', 'message':'$message', 'format':'text'}"
