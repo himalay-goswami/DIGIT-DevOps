@@ -154,7 +154,7 @@ egov-location:
   server-tomcat-max-connections: "1500"
 
 egov-notification-sms:
-  replicas: 2
+  replicas: 1
   sms-gateway-to-use: "HOLY_SMS"
   sms-enabled: "true"
   sms-provider-url: "http://sms.holymarkindia.in/API/WebSMS/Http/v1.0a/index.php"
