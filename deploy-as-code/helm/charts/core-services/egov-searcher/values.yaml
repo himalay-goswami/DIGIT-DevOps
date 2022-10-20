@@ -53,4 +53,14 @@ env: |
       configMapKeyRef:
         name: egov-config
         key: db-url
-  {{- end }}         
+  {{- end }}
+    - name: SPRING_DATASOURCE_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: db
+        key: username
+  - name: SPRING_DATASOURCE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: db
+        key: password
