@@ -21,6 +21,7 @@ cluster-configs:
               db-read-host: "10.67.55.58"
               db-read-name: "ukdprodbckp"
               kafka-brokers: "kafka-v2.kafka-cluster:9092"
+              kafka-infra-brokers: "kafka-v2-infra.kafka-cluster:9092"
               spring-datasource-tomcat-initialSize: "1"
               spring-datasource-tomcat-max-active: "5"
               server-tomcat-max-threads: "10"
