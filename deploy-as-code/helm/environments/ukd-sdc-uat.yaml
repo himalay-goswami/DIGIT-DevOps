@@ -900,5 +900,5 @@ grafana:
   initContainers:
     gitSync:
       enabled: true
-      repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization/configs"
+      repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
       branch: "UAT" 
