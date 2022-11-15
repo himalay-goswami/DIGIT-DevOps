@@ -429,6 +429,16 @@ hrms-web:
 
 telemetry:
   replicas: 2
+  
+  
+egov-telemetry-kafka-streams:
+replicas: 2
+heap: "-Xmx512m -Xms512m -XX:TieredStopAtLevel=1"
+
+egov-telemetry-batch-process:
+  replicas: 2
+  date: ""
+  schedule: "30 19 * * *"   #GMT 07:30PM - IST 01:00 AM every day
 
 ui-uploader:
   replicas: 2
