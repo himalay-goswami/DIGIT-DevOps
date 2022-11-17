@@ -464,6 +464,7 @@ citizen:
 # reportinfra >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 report:
   replicas: 2
+  heap: "-Xmx512m -Xmx512m -XX:TieredStopAtLevel=1"
   tracing-enabled: "true"
   report-locationsfile-path: "file:///work-dir/ukd-rainmaker-customization/configs/reports/reportFileLocationsv1.txt"
   spring-datasource-tomcat-max-active: 5
