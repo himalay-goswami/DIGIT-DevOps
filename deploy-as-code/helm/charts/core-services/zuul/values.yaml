@@ -120,6 +120,11 @@ env: |
       configMapKeyRef:
         key: egov-state-level-tenant-id
         name: egov-config    
+  - name: SPRING_KAFKA_BOOTSTRAP_SERVERS                                                                                                                                        
+    valueFrom:                                                                                                                                                                                 
+      configMapKeyRef:                                                                                                                                                                      
+        key: kafka-infra-brokers                                                                                                                                                            
+        name: egov-config
   - name: ZUUL_ROUTES_FILEPATH
     value: "file:/etc/zuul/routes.properties"   
   {{- if index .Values "home-isolation-chatbot-router-enabled" }}
@@ -146,11 +151,4 @@ env: |
         key: redis-host   
   {{- else }}
     value: "redis.backbone"
-  {{- end }}
-  {{- if index .Values "cluster-configs" "configmaps" "egov-config" "data" "kafka-infra-brokers" }}
-  - name: SPRING_KAFKA_BOOTSTRAP_SERVERS                                                                                                                                        
-    valueFrom:                                                                                                                                                                                 
-      configMapKeyRef:                                                                                                                                                                      
-        key: kafka-infra-brokers                                                                                                                                                            
-        name: egov-config
   {{- end }}
