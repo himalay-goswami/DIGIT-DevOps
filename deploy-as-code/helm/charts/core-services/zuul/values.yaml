@@ -151,6 +151,6 @@ env: |
   {{- if index .Values "cluster-configs" "configmaps" "egov-config" "data" "kafka-infra-brokers" }}                                                                                                                                        
     valueFrom:                                                                                                                                                                                 
       configMapKeyRef:                                                                                                                                                                      
-        key: kafka-brokers                                                                                                                                                            
+        key: kafka-infra-brokers                                                                                                                                                            
         name: egov-config
   {{- end }}
