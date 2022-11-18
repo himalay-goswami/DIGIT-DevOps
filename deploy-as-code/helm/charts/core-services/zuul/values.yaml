@@ -119,7 +119,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         key: egov-state-level-tenant-id
-        name: egov-config
+        name: egov-config    
   - name: ZUUL_ROUTES_FILEPATH
     value: "file:/etc/zuul/routes.properties"   
   {{- if index .Values "home-isolation-chatbot-router-enabled" }}
@@ -147,3 +147,92 @@ env: |
   {{- else }}
     value: "redis.backbone"
   {{- end }}
+extraEnv:
+ java: |
+  - name: SPRING_DATASOURCE_URL
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: db-url
+  - name: FLYWAY_ENABLED
+    value: "false"      
+  - name: SPRING_FLYWAY_ENABLED
+    value: "false"      
+  - name: MANAGEMENT_ENDPOINTS_WEB_BASE_PATH
+    value: "/"
+  - name: APP_TIMEZONE
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: timezone              
+  - name: FLYWAY_URL
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: db-url
+  - name: SPRING_DATASOURCE_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: db
+        key: username
+  - name: SPRING_DATASOURCE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: db
+        key: password
+  - name: SPRING_DATASOURCE_TOMCAT_INITIAL_SIZE
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: spring-datasource-tomcat-initialSize
+  - name: SERVER_TOMCAT_MAX_THREADS
+  {{- if index .Values "server-tomcat-max-threads" }} 
+    value: {{ index .Values "server-tomcat-max-threads" | quote }}    
+  {{- else }}        
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: server-tomcat-max-threads
+  {{- end }}            
+  - name: SERVER_TOMCAT_MAX_CONNECTIONS
+  {{- if index .Values "server-tomcat-max-connections" }} 
+    value: {{ index .Values "server-tomcat-max-connections" | quote }}    
+  {{- else }}        
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: server-tomcat-max-connections
+  {{- end }}                
+  - name: SPRING_DATASOURCE_TOMCAT_MAX_ACTIVE
+  {{- if index .Values "spring-datasource-tomcat-max-active" }}
+    value: {{ index .Values "spring-datasource-tomcat-max-active" | quote }}
+  {{- else }} 
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: spring-datasource-tomcat-max-active 
+  {{- end }}       
+  - name: SPRING_DATASOURCE_HIKARI_MAXIMUM-POOL-SIZE
+  {{- if index .Values "spring-datasource-tomcat-max-active" }}
+    value: {{ index .Values "spring-datasource-tomcat-max-active" | quote }}
+  {{- else }}
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: spring-datasource-tomcat-max-active 
+  {{- end }}           
+  - name: KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: kafka-infra-brokers
+  - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+    valueFrom:
+      configMapKeyRef:
+       name: egov-config
+       key: kafka-infra-brokers
+  - name: SPRING_JPA_SHOW_SQL
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: spring-jpa-show-sql
