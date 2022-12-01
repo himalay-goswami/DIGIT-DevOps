@@ -550,9 +550,9 @@ tl-calculator:
   java-args: "-Dspring.profiles.active=production"
 
 pdf-service:
-  replicas: 2
+  replicas: 3
   memory_limits: 1Gi
-  heap: "-Xmx786m -Xms786m"  
+  heap: "-Xmx800m -Xms800m"  
   initContainers:
     gitSync:
       repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
