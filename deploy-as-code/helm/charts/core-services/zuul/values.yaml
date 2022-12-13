@@ -104,7 +104,7 @@ env: |
   - name: ZUUL_HOST_CONNECT_TIMEOUT_MILLIS
     value: "20000"
   - name: ZUUL_HOST_SOCKET_TIMEOUT_MILLIS
-    value: "90000"
+    value: "120000"
   {{- if index .Values "tracing-enabled" }}
   - name: TRACER_OPENTRACING_ENABLED
     value: "true"
