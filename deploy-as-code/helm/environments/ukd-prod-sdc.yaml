@@ -174,8 +174,8 @@ egov-otp:
   
 egov-user:
   replicas: 2
-  heap: "-Xmx1280m -Xms1280m -XX:TieredStopAtLevel=1"
-  memory_limits: 1Gi
+  heap: "-Xmx1350m -Xms1350m -XX:TieredStopAtLevel=1"
+  memory_limits: 1400M
   otp-validation: "true"
   citizen-otp-enabled: "true"
   employee-otp-enabled: "false"
