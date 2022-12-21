@@ -12,7 +12,7 @@ ingress:
 initContainers:
   gitSync:
     enabled: true
-    repo: "git@github.com:egovernments/ukd-rainmaker-customization"
+    repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
     branch: "master"
 
 # Container Configs
