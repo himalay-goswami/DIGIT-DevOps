@@ -550,7 +550,7 @@ tl-calculator:
   java-args: "-Dspring.profiles.active=production"
 
 pdf-service:
-  replicas: 3
+  replicas: 2
   memory_limits: 1Gi
   heap: "-Xmx800m -Xms800m"  
   initContainers:
