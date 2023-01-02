@@ -475,6 +475,7 @@ report:
   server-tomcat-max-threads: "30"
   server-tomcat-max-connections: "1000"
   java-args: "-Dspring.profiles.active=production"
+  report-query-timeout: "300"
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # rainmaker-pgr >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
