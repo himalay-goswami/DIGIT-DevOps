@@ -28,6 +28,7 @@ tracing-enabled: "true"
 report-locationsfile-path: "file:///work-dir/configs/reports/reportFileLocationsv1.txt"
 heap: "-Xmx192m -Xms192m"
 spring-datasource-tomcat-max-active: "5"
+report-query-timeout: "60"
 
 # Additional Container Envs
 env: |
@@ -47,6 +48,10 @@ env: |
     value: "false"  
   - name: MANAGEMENT_SECURITY_ENABLED
     value: "false"  
+  {{- if index .Values "report-query-timeout" }}
+  - name: REPORT_QUERY_TIMEOUT
+    value: {{ index .Values "report-query-timeout" | quote }}
+  {{- end }}
   - name: EGOV_MDMS_HOST
     valueFrom:
       configMapKeyRef:
