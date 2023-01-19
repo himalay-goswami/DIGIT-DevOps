@@ -892,8 +892,8 @@ oauth2-proxy:
   config:
     configFile: |-
       email_domains = [ "*" ]
-      github_org = "egovernments"
-      github_team = "ukd-prod,DevOps"
+      github_org = "eNagarsewaU"
+      github_team = "SRE,ukd-prod,ukd-uat,UKD-service-devops"
       upstreams = [ "file:///dev/null" ]  
 
 #grafana >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
