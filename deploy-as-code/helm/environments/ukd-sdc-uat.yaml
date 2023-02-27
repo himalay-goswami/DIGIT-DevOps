@@ -136,7 +136,7 @@ egov-accesscontrol:
   heap: "-Xmx376m -Xms376m"
 
 ukd-custom-service:
-  replicas: 2
+  replicas: 1
   memory_limits: 768Mi
   heap: "-Xmx512m -Xms512m"  
   enable-sms: "true"
@@ -170,7 +170,7 @@ egov-notification-sms:
 
   
 egov-url-shortening:
-  replicas: 2
+  replicas: 1
   server-context: "/eus"
   ingress:
     context: "eus"
@@ -201,7 +201,7 @@ egov-user:
   spring-datasource-tomcat-max-active: "25" 
 
 egov-workflow:
-  replicas: 2
+  replicas: 1
   heap: "-Xmx256m -Xms256m -XX:TieredStopAtLevel=1" 
   memory_limits: 512Mi
   java-args: "-Dspring.profiles.active=production"
@@ -210,7 +210,7 @@ egov-workflow:
   spring-datasource-tomcat-max-active: "25"
 
 egov-idgen:
-  replicas: 2
+  replicas: 1
   idformat-from-mdms: "true"
   heap: "-Xmx376m -Xms376m -XX:TieredStopAtLevel=1"
   server-tomcat-max-threads: "50"
@@ -250,7 +250,7 @@ egov-persister:
   java-args: "-Dspring.profiles.active=production"
   
 egov-data-uploader:
-  replicas: 2
+  replicas: 1
   heap: "-Xmx512m -Xms512m -XX:TieredStopAtLevel=1"
   upload-assessment: "YES"
   upload-json-path: "file:///work-dir/ukd-rainmaker-customization/configs/egov-uploader/property-upload.json,file:///work-dir/ukd-rainmaker-customization/configs/egov-uploader/localization-upload.json,file:///work-dir/ukd-rainmaker-customization/configs/egov-uploader/CollectionReceiptWorkflow.json"
@@ -272,7 +272,7 @@ egov-searcher:
   java-args: "-Dspring.profiles.active=production"
 
 egov-pg-service:
-  replicas: 2
+  replicas: 1
   axis: "false"
   ccavenue: "true"
   easypay-sub-merchant-id: 1
@@ -289,7 +289,7 @@ egov-custom-consumer:
   erp-host: "https://mohali-qa.egovernments.org/"
 
 egov-apportion-service:
-  replicas: 2
+  replicas: 1
   memory_limits: 512Mi
   heap: -Xmx256m -Xms256m    
   java-args: "-Dspring.profiles.active=production"
@@ -404,19 +404,19 @@ billing-service:
   spring-datasource-tomcat-max-active: "10"
   
 egov-user-event:
-  replicas: 2
+  replicas: 1
 
 common-screen:
-  replicas: 2
+  replicas: 1
   
 dss-dashboard:
   replicas: 2
 
 employee-tradelicence:
-  replicas: 2
+  replicas: 1
 
 hrms-web:
-  replicas: 2
+  replicas: 1
 
 telemetry:
   replicas: 2
@@ -425,19 +425,19 @@ ui-uploader:
   replicas: 2
 
 egov-otp:
-  replicas: 2
+  replicas: 1
   sms-enabled: "false"
 
 user-otp:
   sms-enabled: "false"
-  replicas: 2     
+  replicas: 1   
   java-args: "-Dspring.profiles.active=production"  
   
 ukd-assets:
   replicas: 2
 
 egov-common-masters:
-  replicas: 2
+  replicas: 1
  
 ui-localisation:
   replicas: 2
@@ -480,7 +480,7 @@ report:
 
 # rainmaker-pgr >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 rainmaker-pgr:
-  replicas: 2
+  replicas: 0
   notification-sms-enabled: "false"
   notification-email-enabled: "false"
   new-complaint-enabled: "true"
@@ -574,7 +574,7 @@ egov-workflow-v2:
 
 
 egov-hrms:
-  replicas: 2
+  replicas: 1
   java-args: -Dspring.profiles.active=production
   heap: "-Xmx192m -Xms192m"
   employee-applink: "https://egov-micro-qa.egovernments.org/employee/user/login"
