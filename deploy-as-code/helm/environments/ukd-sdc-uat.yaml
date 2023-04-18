@@ -164,7 +164,7 @@ egov-notification-sms:
   sms-enabled: "true"
   sms-provider-url: "http://hmimedia.in/pushsms.php"
   sms-sender: "UKNGRS"
-  sms-config-map: "{'username':'$username', 'api_password': '$password', 'sender':'$senderid', 'to':'$mobileno', 'message':'$message', 'format':'text'}"
+  sms-config-map: "{'username':'$username', 'api_password': '$password', 'sender':'$senderid', 'to':'$mobileno', 'priority': 11, 'message':'$message', 'format':'text'}"
   java-args: "-Dspring.profiles.active=production"
   sms.provider.class: "Console"
 
