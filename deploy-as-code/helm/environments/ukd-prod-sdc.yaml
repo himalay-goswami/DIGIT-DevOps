@@ -716,6 +716,7 @@ egov-enc-service:
   # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 kafka-v2:
+  replicas: 3
   # DEPLOY VIA HELM
   persistence:
     enabled: true
