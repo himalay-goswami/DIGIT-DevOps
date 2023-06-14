@@ -886,7 +886,7 @@ kafka-v2-infra:
 kibana-v1:
   replicas: 1
   images:
-    - docker.elastic.co/kibana/kibana:6.6.2
+    - docker.elastic.co/kibana/kibana:6.4.2
   es-url: "http://elasticsearch-client-v1:9200"  
   external_port: 5601
   service_type: LoadBalancer
@@ -896,7 +896,7 @@ kibana-v1:
 kibana-infra-v1:
   replicas: 1
   images:
-    - docker.elastic.co/kibana/kibana:6.6.2
+    - docker.elastic.co/kibana/kibana:6.4.2
   es-url: "http://elasticsearch-client-infra-v1:9200"  
   external_port: 5601
   server-basepath: "/kibana-infra"  
