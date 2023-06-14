@@ -926,3 +926,15 @@ grafana:
       enabled: true
       repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
       branch: "master"
+# airflow >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+airflow:
+  config:
+    AIRFLOW__WEBSERVER__BASE_URL: "https://nagarsewa.uk.gov.in/airflow"
+    AIRFLOW__CORE__PLUGINS_FOLDER: "/opt/airflow/dags/repo/utilities/egov-national-dashboard-accelerator/plugins"
+externalDatabase: 
+  database: ukd_airflow_db
+dags:
+   gitSync:
+     repo:  "https://github.com/eNagarsewaU/DIGIT-UKD.git"
+     repoSubPath: "utilities/egov-national-dashboard-accelerator/dags"
+     branch: master      
