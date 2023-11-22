@@ -569,8 +569,8 @@ tl-calculator:
 
 pdf-service:
   replicas: 3
-  memory_limits: 1Gi
-  heap: "-Xmx786m -Xms786m"
+  memory_limits: 1536Mi
+  heap: "-Xmx1024m -Xms1024m"
   initContainers:
     gitSync:
         repo: "git@github.com:eNagarsewa/ukd-rainmaker-customization"
